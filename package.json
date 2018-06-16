@@ -1,0 +1,31 @@
+{
+  "name": "basic-backend-express",
+  "version": "1.0.0",
+  "description": "Basic Backend Service API for SPA",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "babel-node app.js --presets es2015"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LiveSlowSkateFast/basic-backend-express.git"
+  },
+  "author": "Jp Rowan (jp.rowan@auth0.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LiveSlowSkateFast/basic-backend-express/issues"
+  },
+  "homepage": "https://github.com/LiveSlowSkateFast/basic-backend-express#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-jwt": "^5.3.1",
+    "express-jwt-authz": "^1.0.0",
+    "jwks-rsa": "^1.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
