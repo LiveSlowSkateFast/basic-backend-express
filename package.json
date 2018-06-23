@@ -4,8 +4,12 @@
   "description": "Basic Backend Service API for SPA",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-node app.js --presets es2015"
+    "build": "npm run clean && npm run build-server",
+    "build-server": "babel -d ./build ./server -s",
+    "clean": "rm -rf build && mkdir build",
+    "run": "node ./build/app.js",
+    "start": "babel-node app.js --presets es2015",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,14 +22,13 @@
   },
   "homepage": "https://github.com/LiveSlowSkateFast/basic-backend-express#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-jwt": "^5.3.1",
     "express-jwt-authz": "^1.0.0",
-    "jwks-rsa": "^1.2.1",
-    "request": "^2.87.0",
-    "request-promise": "^4.2.2"
+    "jwks-rsa": "^1.2.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

@@ -1,24 +1,14 @@
 import express from 'express'
 import checkJwt from '../services/checkJwt'
-import BearerToken from '../services/BearerToken'
-
-const token = new BearerToken
+import { Profile } from "../controlers";
 
 const router = express.Router()
+const profile = new Profile
 
-router.get('/', (req, res) =>
-  res.json({ stat: "ok" })
+router.get('/', (req, res) => res.json({ stat: "ok" }))
+
+router.get('/profile', checkJwt, (req, res, next) =>
+  profile.get(req, (err, data) => err ? next(err) : res.json(data))
 )
-
-router.get('/profile', checkJwt, (req, res) =>
-  res.json({ profile: "test" })
-)
-
-router.get('/test', (req, res) => {
-  res.json({
-    test: 'test',
-    token: token.access_token,
-  })
-})
 
 export default router
