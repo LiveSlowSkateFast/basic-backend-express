@@ -32,4 +32,10 @@ export default class ManagementAPI {
     }).then(res => cb(null, res.data)).catch(err => cb(err))
   }
 
+  getResourceServers(cb) {
+    axios.get(this.auth0Domain + '/api/v2/resource-servers', {
+      headers: { Authorization: 'Bearer ' + this.access_token },
+    }).then(res => cb(null, res.data)).catch(err => cb(err))
+  }
+
 }
