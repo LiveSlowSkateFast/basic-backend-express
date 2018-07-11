@@ -20,4 +20,8 @@ router.get('/resource-servers/:id/scopes', checkJwt, (req, res, next) =>
   settings.getResourceServerScopes(req.params.id, (err, data) => err ? next(err) : res.json(data))
 )
 
+router.get('/guardian/factors', checkJwt, (req, res, next) =>
+  settings.getGuardianFactors((err, data) => err ? next(err) : res.json(data))
+)
+
 export default router
