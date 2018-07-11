@@ -11,6 +11,7 @@ export default class ManagementAPI {
     this.client_secret = process.env.CLIENT_SECRET
     this.getToken((err, body) =>
       this.access_token = body.access_token)
+    this.authorization = () => 'Bearer ' + this.access_token
   }
 
   getToken(cb) {
@@ -28,13 +29,13 @@ export default class ManagementAPI {
 
   getUser(sub, cb) {
     axios.get(this.auth0Domain + '/api/v2/users/' + sub, {
-      headers: { Authorization: 'Bearer ' + this.access_token },
+      headers: { Authorization: this.authorization() },
     }).then(res => cb(null, res.data)).catch(err => cb(err))
   }
 
   getResourceServers(cb) {
     axios.get(this.auth0Domain + '/api/v2/resource-servers', {
-      headers: { Authorization: 'Bearer ' + this.access_token },
+      headers: { Authorization: this.authorization() },
     }).then(res => cb(null, res.data)).catch(err => cb(err))
   }
 
