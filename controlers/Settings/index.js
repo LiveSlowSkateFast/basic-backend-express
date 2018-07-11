@@ -22,4 +22,10 @@ export default class Settings {
     })
   }
 
+  getGuardianFactors(cb){
+    this.api.getGuardianFactors((err, data) => {
+      err ? cb(err): cb(null, data)
+    })
+  }
+
 }

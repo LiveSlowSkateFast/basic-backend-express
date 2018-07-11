@@ -39,4 +39,10 @@ export default class ManagementAPI {
     }).then(res => cb(null, res.data)).catch(err => cb(err))
   }
 
+  getGuardianFactors(cb) {
+    axios.get(this.auth0Domain + '/api/v2/guardian/factors', {
+      headers: { Authorization: this.authorization() },
+    }).then(res => cb(null, res.data)).catch(err => cb(err))
+  }
+
 }
