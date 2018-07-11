@@ -5,7 +5,7 @@ export default class Settings {
     this.api = new ManagementAPI
   }
 
-  getResourceServers(cb){
+  getResourceServers(cb) {
     this.api.getResourceServers((err, data) => {
       err ? cb(err) : cb(null, data.map(resource => ({
         name: resource.name,
@@ -15,16 +15,16 @@ export default class Settings {
     })
   }
 
-  getResourceServerScopes(resourceServerId, cb){
+  getResourceServerScopes(resourceServerId, cb) {
     this.api.getResourceServers((err, data) => {
-      err ? cb(err): cb(null, data.filter(resource =>
+      err ? cb(err) : cb(null, data.filter(resource =>
         resource.id === resourceServerId)[0].scopes)
     })
   }
 
-  getGuardianFactors(cb){
+  getGuardianFactors(cb) {
     this.api.getGuardianFactors((err, data) => {
-      err ? cb(err): cb(null, data)
+      err ? cb(err) : cb(null, data)
     })
   }
 
